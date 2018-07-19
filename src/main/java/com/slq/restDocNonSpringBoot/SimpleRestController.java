@@ -10,6 +10,6 @@ public class SimpleRestController {
 
 	@RequestMapping(value="say-hello")
 	public String sayHello() {
-		return "Hello " + new Date();
+		return "Hello config-with-java " + new Date();
 	}
 }
