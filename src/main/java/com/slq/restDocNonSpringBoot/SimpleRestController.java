@@ -10,6 +10,6 @@ public class SimpleRestController {
 
 	@RequestMapping(value="say-hello")
 	public String sayHello() {
-		return "Hello config-with-init-param " + new Date();
+		return "Hello config-with-ContextLoaderListener " + new Date();
 	}
 }

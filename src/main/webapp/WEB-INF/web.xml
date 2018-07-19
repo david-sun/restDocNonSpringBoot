@@ -5,10 +5,27 @@
 
 	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd">
 
+	<!--
+		ContextLoaderListener is spring config
+		1. Default config file is applicationContext.xml
+		2. can use context-param to override it. 
+	-->
+	<listener>
+	    <listener-class>
+	        org.springframework.web.context.ContextLoaderListener
+	    </listener-class>
+	</listener>
+	
+	<context-param>
+	    <param-name>contextConfigLocation</param-name>
+	    <param-value>/WEB-INF/non-default-applicationContext.xml</param-value>
+	</context-param>	
+
 	<servlet>
 		<servlet-name>rest</servlet-name>
 		<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
 		<!--
+			This is for the servlet config
 			1. Default context config is the /WEB-INF/rest-servlet.xml
 			2. With the Init param:
 				1) Your can put the config file in the /WEB-INF folder with different name,
@@ -16,15 +33,13 @@
 				2) Or put it in the resources folder, with classpath: config file name
 					eg. classpath-rest-servlet.xml
 		-->
-		<init-param>
+		<!-- <init-param>
 			<param-name>contextConfigLocation</param-name>
-			<!-- <param-value>
-				/WEB-INF/non-default-rest-servlet.xml
-			</param-value> -->
 			<param-value>
+				/WEB-INF/non-default-rest-servlet.xml,
 				classpath:classpath-rest-servlet.xml
 			</param-value>
-		</init-param>
+		</init-param> -->
 		<load-on-startup>1</load-on-startup>
 	</servlet>
 
