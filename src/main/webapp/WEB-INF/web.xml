@@ -1,3 +1,36 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<web-app id="WebApp_ID" version="3.0" xmlns="http://java.sun.com/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd">
+<web-app id="WebApp_ID" version="3.0"
+	xmlns="http://java.sun.com/xml/ns/javaee"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd">
+
+	<servlet>
+		<servlet-name>rest</servlet-name>
+		<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+		<!--
+			1. Default context config is the /WEB-INF/rest-servlet.xml
+			2. With the Init param:
+				1) Your can put the config file in the /WEB-INF folder with different name,
+				   eg. non-default-rest-servlet.xml
+				2) Or put it in the resources folder, with classpath: config file name
+					eg. classpath-rest-servlet.xml
+		-->
+		<init-param>
+			<param-name>contextConfigLocation</param-name>
+			<!-- <param-value>
+				/WEB-INF/non-default-rest-servlet.xml
+			</param-value> -->
+			<param-value>
+				classpath:classpath-rest-servlet.xml
+			</param-value>
+		</init-param>
+		<load-on-startup>1</load-on-startup>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>rest</servlet-name>
+		<url-pattern>/*</url-pattern>
+	</servlet-mapping>
+
 </web-app>
