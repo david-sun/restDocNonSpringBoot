@@ -54,12 +54,12 @@
 		</dependency>
 
 		<!-- https://mvnrepository.com/artifact/org.apache.tomcat/tomcat-servlet-api -->
-		<!-- <dependency>
+		<dependency>
 		    <groupId>org.apache.tomcat</groupId>
 		    <artifactId>tomcat-servlet-api</artifactId>
 		    <version>9.0.0.M21</version>
 		    <scope>provided</scope>
-		</dependency> -->
+		</dependency>
 
 		<!-- https://mvnrepository.com/artifact/javax.servlet/javax.servlet-api -->
 		<!-- <dependency>
@@ -113,6 +113,14 @@
 					<target>${java.version}</target>
 				</configuration>
 			</plugin>
+
+			<!-- Can be start with jetty: mavn jetty:start, just test, not work-->
+			<plugin>
+				<groupId>org.eclipse.jetty</groupId>
+				<artifactId>jetty-maven-plugin</artifactId>
+				<version>9.2.1.v20140609</version>
+			</plugin>
+
 		</plugins>
 	</build>
 
